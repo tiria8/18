@@ -8,7 +8,7 @@ directors_ns = Namespace('directors')
 
 @directors_ns.route('/')
 class DirectorsView(Resource):
-    def get_all(self):
+    def get(self):
         all_directors = director_service.get_all()
         result = DirectorSchema(many=True).dump(all_directors)
         return result, 200

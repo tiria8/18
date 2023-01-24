@@ -5,12 +5,12 @@ class MovieService:
         self.dao = dao
 
     def get_all(self, data):
-        if data.get('director_id') is not None:
-            movies = self.dao.get_by_director_id('director_id')
-        if data.get('genre_id') is not None:
-            movies = self.dao.get_by_director_id('genre_id')
-        if data.get('year') is not None:
-            movies = self.dao.get_by_director_id('year')
+        if data.get("director_id") is not None:
+            movies = self.dao.get_by_director_id(data.get("director_id"))
+        if data.get("genre_id") is not None:
+            movies = self.dao.get_by_genre_id(data.get("genre_id"))
+        if data.get("year") is not None:
+            movies = self.dao.get_by_year(data.get("year"))
         else:
             movies = self.dao.get_all()
         return movies
